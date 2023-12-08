@@ -47,15 +47,19 @@ for x in mycursor:
 prod_id = input('Choose Product ID: ')
 
 # FINDS PRODUCT AND SHOWS DISCOUNT
-'''
-mycursor. execute (f'SQL COMMAND')
+
+mycursor. execute (f"SELECT Product_title, Sale from Product WHERE Product_title = '{prod_id}'")
 
 
 for x in mycursor:
     print (x)
-'''
 
+change_discount = input("Do you want to change the discount (y/n): ")
 
+if change_discount == "y":
+    new_discount = input("Enter new discount: ")
+    mycursor. execute (f"UPDATE Product SET Sale = '{new_discount}' WHERE Product_title = '{prod_id}'")
+    print(f"Your new discount on product {prod_id} is {new_discount}")
 
 mydb.close()
 
