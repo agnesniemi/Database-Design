@@ -45,6 +45,8 @@ for x in mycursor:
 
 # USER CHOOSES PRODUCT ID
 prod_id = input('Choose Product ID: ')
+
+# FINDS PRODUCT AND SHOWS DISCOUNT
 '''
 mycursor. execute (f'SQL COMMAND')
 
