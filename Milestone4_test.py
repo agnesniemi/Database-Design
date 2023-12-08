@@ -12,7 +12,7 @@ mydb = pymysql.connect(
 # WILL INTERPRET YOUR SQL-COMMAND AND GIVE AN ITERABLE WITH THE OBTAINED OBJECTS
 mycursor = mydb.cursor ()
 
-mycursor. execute ("SHOW DATABASES")
+mycursor.execute ("SHOW DATABASES")
 
 # THESE SECTIONS ARE FOR DISPLAYING THE OBTAINED OBJECTS GENERATED FROM A SQL COMMAND
 
@@ -26,7 +26,7 @@ for x in mycursor:
     print (x)
 
 # USER CHOOSES DERARTMENT ID (PRIMARY KEY TITLE)
-dep_id = input('Choose Department ID: ')
+dep_id = input('Choose Department ID: Food_storage')
 
 # IF LEAF DEPARTMENT
 mycursor. execute (f"SELECT Product_title, (Price_before_tax + Tax_added_to_price + Sale) AS Current_Retail_Price FROM Product WHERE Product_title IN (SELECT Product_title FROM Product WHERE Department_title = '{dep_id}')")
@@ -35,13 +35,12 @@ for x in mycursor:
     print (x)
 
 # IF NOT LEAF
-'''
-mycursor. execute (f'SQL COMMAND')
 
+mycursor. execute (f"SELECT Title FROM Department WHERE Parent = '{dep_id}'")
 
 for x in mycursor:
     print (x)
-'''
+
 
 # USER CHOOSES PRODUCT ID
 prod_id = input('Choose Product ID: ')
